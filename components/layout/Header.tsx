@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { NAV_ITEMS, TELEGRAM_URL } from '@/lib/constants';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
@@ -34,16 +35,21 @@ export function Header() {
         <div className="container flex h-16 items-center justify-between md:h-20">
           <a
             href="#top"
+            aria-label="shstkv — на головну"
             className="flex items-center gap-2 text-ink"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-ink text-orange">
-              <LogoMark />
-            </span>
-            <span className="text-base font-semibold tracking-tight">shstkv</span>
+            <Image
+              src="/logo-dark.svg"
+              alt="shstkv"
+              width={132}
+              height={28}
+              priority
+              className="h-7 w-auto md:h-8"
+            />
           </a>
 
           <nav aria-label="Основна навігація" className="hidden lg:flex items-center gap-1">
@@ -156,14 +162,6 @@ export function Header() {
         ) : null}
       </AnimatePresence>
     </>
-  );
-}
-
-function LogoMark() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 17 L18 5 M10 5 H18 V13" />
-    </svg>
   );
 }
 

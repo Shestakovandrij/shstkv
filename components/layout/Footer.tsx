@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { NAV_ITEMS, TELEGRAM_URL, TELEGRAM_USERNAME } from '@/lib/constants';
 import { FOOTER } from '@/content/copy';
 import { Button } from '@/components/ui/Button';
@@ -11,12 +12,13 @@ export function Footer() {
       <div className="container py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
           <div className="flex flex-col gap-6">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-orange text-ink">
-                <LogoMark />
-              </span>
-              <span className="text-base font-semibold tracking-tight">shstkv</span>
-            </div>
+            <Image
+              src="/logo-light.svg"
+              alt="shstkv"
+              width={170}
+              height={36}
+              className="h-9 w-auto"
+            />
             <p className="max-w-md text-base text-white/70 leading-relaxed">{FOOTER.description}</p>
             <a
               href={TELEGRAM_URL}
@@ -76,14 +78,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function LogoMark() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 17 L18 5 M10 5 H18 V13" />
-    </svg>
   );
 }
 

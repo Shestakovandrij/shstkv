@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { LeadPopupProvider } from '@/components/global/LeadPopupProvider';
+import { Preloader } from '@/components/global/Preloader';
 import './globals.css';
 
 const SITE_URL = 'https://shstkv.vercel.app';
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="uk">
       <body className="font-sans">
+        <Preloader />
         <LeadPopupProvider>{children}</LeadPopupProvider>
         <script
           type="application/ld+json"

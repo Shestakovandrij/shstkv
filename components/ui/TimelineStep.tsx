@@ -21,8 +21,8 @@ export function TimelineStep({ num, title, desc, index, total, highlight }: Prop
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        'group relative flex flex-col gap-4 rounded-card border bg-white p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft',
-        highlight ? 'border-orange/40 bg-ink text-white' : 'border-ink/5',
+        'group relative flex flex-col gap-4 rounded-card border p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft',
+        highlight ? 'border-orange/40 bg-ink text-white' : 'border-ink/5 bg-white text-ink',
       )}
     >
       <div className="flex items-center gap-3">
