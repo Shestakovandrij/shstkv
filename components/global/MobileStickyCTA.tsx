@@ -6,25 +6,36 @@ import { useLeadPopup } from './LeadPopupProvider';
 
 export function MobileStickyCTA() {
   const { openPopup, isOpen } = useLeadPopup();
-  const [visible, setVisible] = useState(false);
+  const [afterHero, setAfterHero] = useState(false);
+  const [overFinal, setOverFinal] = useState(false);
 
   useEffect(() => {
     const hero = document.getElementById('hero');
-    if (!hero) {
-      setVisible(true);
-      return;
-    }
-    const obs = new IntersectionObserver(
-      ([entry]) => setVisible(!entry.isIntersecting),
-      { threshold: 0.1 },
-    );
-    obs.observe(hero);
-    return () => obs.disconnect();
+    const finalSection = document.querySelector('[aria-labelledby="final-title"]');
+
+    if (!hero) setAfterHero(true);
+
+    const heroObs = hero
+      ? new IntersectionObserver(([entry]) => setAfterHero(!entry.isIntersecting), { threshold: 0.1 })
+      : null;
+    heroObs?.observe(hero!);
+
+    const finalObs = finalSection
+      ? new IntersectionObserver(([entry]) => setOverFinal(entry.isIntersecting), { threshold: 0.05 })
+      : null;
+    if (finalSection) finalObs?.observe(finalSection);
+
+    return () => {
+      heroObs?.disconnect();
+      finalObs?.disconnect();
+    };
   }, []);
+
+  const visible = afterHero && !overFinal && !isOpen;
 
   return (
     <AnimatePresence>
-      {visible && !isOpen ? (
+      {visible ? (
         <motion.div
           initial={{ y: 80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

@@ -14,8 +14,8 @@ export const HERO = {
   primaryCta: 'Залишити заявку',
   secondaryCta: 'Подивитись пакети',
   keycap: {
-    line1: 'Старт',
-    line2: '5–10 днів',
+    line1: 'Start',
+    line2: '→',
   },
   proofs: [
     { label: 'Telegram заявки', tone: 'orange' as const },
@@ -28,13 +28,12 @@ export const HERO = {
     cta: 'Написати в Telegram',
   },
   metricCard: {
-    label: 'Швидкість',
-    title: 'Запуск під рекламу',
-    suffix: '/ ключ на руки',
-    metric: '5–10',
-    metricUnit: 'днів',
-    body: 'Від першого дзвінка до сайту, який можна показувати клієнтам.',
-    ctaLabel: 'Старт',
+    label: 'Доставка лідів',
+    title: 'Заявка → Telegram',
+    suffix: 'без CRM і зайвих кліків',
+    metric: '0',
+    metricUnit: 'кліків',
+    body: 'Клієнт відправив форму — повідомлення вже у вашому боті. Жодних посередників.',
   },
 };
 

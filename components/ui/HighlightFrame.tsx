@@ -11,10 +11,10 @@ type Props = {
   className?: string;
 };
 
-const sizes: Record<Size, { pad: string; handle: string; offset: string }> = {
-  sm: { pad: 'px-2 py-0.5', handle: 'h-1.5 w-1.5', offset: '-top-[3px] -left-[3px] -right-[3px] -bottom-[3px]' },
-  md: { pad: 'px-2.5 py-0.5 md:px-3', handle: 'h-2 w-2', offset: '-top-1 -left-1 -right-1 -bottom-1' },
-  lg: { pad: 'px-3 py-0.5 md:px-4 md:py-1', handle: 'h-2 w-2 md:h-2.5 md:w-2.5', offset: '-top-[5px] -left-[5px] -right-[5px] -bottom-[5px] md:-top-1.5 md:-left-1.5 md:-right-1.5 md:-bottom-1.5' },
+const sizes: Record<Size, { pad: string; handle: string }> = {
+  sm: { pad: 'px-2 py-0.5', handle: 'h-1.5 w-1.5' },
+  md: { pad: 'px-2.5 py-0.5 md:px-3', handle: 'h-2 w-2' },
+  lg: { pad: 'px-3 py-0.5 md:px-4 md:py-1', handle: 'h-2 w-2 md:h-2.5 md:w-2.5' },
 };
 
 const palette: Record<Color, { text: string; border: string; bg: string; handle: string }> = {
@@ -34,8 +34,9 @@ export function HighlightFrame({ children, color = 'orange', size = 'lg', classN
   // Parse offset shorthand into individual class strings for each handle.
   return (
     <span
+      style={{ verticalAlign: 'baseline' }}
       className={cn(
-        'relative inline-block align-baseline leading-[0.95]',
+        'relative inline-block leading-none',
         'border',
         s.pad,
         c.bg,
@@ -48,7 +49,7 @@ export function HighlightFrame({ children, color = 'orange', size = 'lg', classN
       <Handle position="tr" sizeClass={s.handle} bg={c.handle} sizeKey={size} />
       <Handle position="bl" sizeClass={s.handle} bg={c.handle} sizeKey={size} />
       <Handle position="br" sizeClass={s.handle} bg={c.handle} sizeKey={size} />
-      <span className="relative">{children}</span>
+      <span className="relative inline-block leading-[1.1]">{children}</span>
     </span>
   );
 }

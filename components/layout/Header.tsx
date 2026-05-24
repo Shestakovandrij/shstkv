@@ -54,14 +54,18 @@ export function Header() {
 
           <nav aria-label="Основна навігація" className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
-              <button
+              <a
                 key={item.id}
-                type="button"
-                onClick={() => scrollToId(item.id)}
+                href={`#${item.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToId(item.id);
+                  history.replaceState(null, '', `#${item.id}`);
+                }}
                 className="rounded-pill px-4 py-2 text-sm font-medium text-ink/70 transition-colors hover:bg-ink/5 hover:text-ink"
               >
                 {item.label}
-              </button>
+              </a>
             ))}
           </nav>
 
@@ -121,17 +125,21 @@ export function Header() {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.08 + i * 0.05 }}
                   >
-                    <button
-                      type="button"
-                      onClick={() => {
+                    <a
+                      href={`#${item.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
                         setMenuOpen(false);
-                        setTimeout(() => scrollToId(item.id), 200);
+                        setTimeout(() => {
+                          scrollToId(item.id);
+                          history.replaceState(null, '', `#${item.id}`);
+                        }, 200);
                       }}
                       className="flex w-full items-center justify-between rounded-2xl bg-white px-5 py-4 text-left text-xl font-semibold tracking-tight"
                     >
                       {item.label}
                       <span className="text-orange">→</span>
-                    </button>
+                    </a>
                   </motion.li>
                 ))}
               </ul>

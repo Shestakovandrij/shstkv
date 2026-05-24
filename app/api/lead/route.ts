@@ -21,9 +21,19 @@ export async function POST(req: NextRequest) {
 
     if (!result.ok) {
       console.error('[lead] telegram delivery failed:', result.error);
-      // We still respond 200 to the client so user sees success;
-      // the lead is logged on the server for manual recovery.
-      console.info('[lead] payload:', parsed.data);
+      console.info('[lead] payload (for manual recovery):', parsed.data);
+
+      // If chat_id is intentionally not configured (e.g. local dev),
+      // accept the lead silently — it's logged above for recovery.
+      // If credentials are set but delivery failed → surface 502 so user retries.
+      const isMissingConfig =
+        result.error.includes('missing') || result.error.includes('TELEGRAM_');
+      if (!isMissingConfig) {
+        return NextResponse.json(
+          { ok: false, error: 'delivery' },
+          { status: 502 },
+        );
+      }
     }
 
     return NextResponse.json({ ok: true });

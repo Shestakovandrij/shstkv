@@ -33,7 +33,8 @@ export function LeadForm({ defaultPackage = 'consult', variant = 'popup', onDone
       phone: '',
       packageValue: defaultPackage,
       comment: '',
-      consent: undefined as unknown as true,
+      // Zod schema requires literal true; cast keeps default an unchecked boolean.
+      consent: false as unknown as true,
     },
     mode: 'onBlur',
   });

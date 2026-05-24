@@ -59,10 +59,10 @@ export function PricingCard({
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 200, damping: 22 }}
       className={cn(
-        'relative flex flex-col gap-7 rounded-card p-7 md:p-10 shadow-soft border overflow-hidden',
+        'relative flex flex-col gap-7 rounded-card p-7 md:p-10 border overflow-hidden',
         isDark
-          ? 'bg-ink text-white border-white/5 lg:scale-[1.02]'
-          : 'bg-white text-ink border-ink/5',
+          ? 'bg-ink text-white border-white/5 shadow-liftSoft ring-1 ring-orange/20'
+          : 'bg-white text-ink border-ink/5 shadow-soft',
       )}
     >
       <CornerMarkers color={isDark ? 'orange' : 'orange'} size="sm" inset={14} />

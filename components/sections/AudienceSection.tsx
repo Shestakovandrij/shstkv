@@ -49,7 +49,7 @@ export function AudienceSection() {
           <div className="grid grid-cols-6 gap-3 md:gap-4">
             {/* Featured big card — top right */}
             <div className="col-span-6 md:col-span-4 md:col-start-3 md:row-start-1">
-              <BracketCard tone="orange" rotate={-1.2} delay={0.05} showBrackets={false} className="h-full">
+              <BracketCard tone="orange" rotate={-0.6} delay={0.05} showBrackets={false} className="h-full">
                 <div className="flex flex-col gap-3">
                   <span className="text-xs uppercase tracking-[0.14em] font-semibold opacity-70">
                     {AUDIENCE.featured.title}
@@ -61,13 +61,13 @@ export function AudienceSection() {
               </BracketCard>
             </div>
 
-            {/* Bento positions for 6 use cases */}
-            <UseCaseTile className="col-span-3 md:col-span-2" delay={0.1} rotate={1.5} tone="dark" label={AUDIENCE.useCases[0].label} />
-            <UseCaseTile className="col-span-3 md:col-span-2" delay={0.15} rotate={-0.8} tone="light" label={AUDIENCE.useCases[1].label} />
-            <UseCaseTile className="col-span-3 md:col-span-3 md:col-start-1" delay={0.2} rotate={-1.5} tone="light" label={AUDIENCE.useCases[2].label} />
-            <UseCaseTile className="col-span-3 md:col-span-3" delay={0.25} rotate={1} tone="dark" label={AUDIENCE.useCases[3].label} />
-            <UseCaseTile className="col-span-4 md:col-span-3" delay={0.3} rotate={-0.5} tone="light" label={AUDIENCE.useCases[4].label} />
-            <UseCaseTile className="col-span-2 md:col-span-3" delay={0.35} rotate={1.2} tone="outline" label={AUDIENCE.useCases[5].label} />
+            {/* Bento positions for 6 use cases — soft rotates, safe on mobile */}
+            <UseCaseTile className="col-span-3 md:col-span-2" delay={0.1} rotate={0.6} tone="dark" label={AUDIENCE.useCases[0].label} />
+            <UseCaseTile className="col-span-3 md:col-span-2" delay={0.15} rotate={-0.4} tone="light" label={AUDIENCE.useCases[1].label} />
+            <UseCaseTile className="col-span-3 md:col-span-3 md:col-start-1" delay={0.2} rotate={-0.7} tone="light" label={AUDIENCE.useCases[2].label} />
+            <UseCaseTile className="col-span-3 md:col-span-3" delay={0.25} rotate={0.5} tone="dark" label={AUDIENCE.useCases[3].label} />
+            <UseCaseTile className="col-span-4 md:col-span-3" delay={0.3} rotate={-0.3} tone="light" label={AUDIENCE.useCases[4].label} />
+            <UseCaseTile className="col-span-2 md:col-span-3" delay={0.35} rotate={0.6} tone="outline" label={AUDIENCE.useCases[5].label} />
           </div>
 
           {/* Ambient blur for depth */}

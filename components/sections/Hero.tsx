@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/Button';
 import { HighlightFrame } from '@/components/ui/HighlightFrame';
 import { BlurOrb, CornerMarkers } from '@/components/ui/BrandDecor';
 import { HERO } from '@/content/copy';
-import { TELEGRAM_URL } from '@/lib/constants';
 import { useLeadPopup } from '@/components/global/LeadPopupProvider';
 import { scrollToId } from '@/lib/utils';
 
@@ -106,16 +105,15 @@ export function Hero() {
         {/* TWO CARDS BELOW ----------------------------------- */}
         <div className="grid gap-4 mt-4 md:mt-5 md:grid-cols-[300px_1fr] md:gap-5">
           {/* Question card */}
-          <motion.a
-            href={TELEGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
+            type="button"
+            onClick={() => openPopup('consult')}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -3 }}
-            className="group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-[24px] bg-orange p-6 md:p-7 text-ink shadow-soft transition-shadow hover:shadow-liftSoft"
+            className="group relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-[24px] bg-orange p-6 md:p-7 text-ink shadow-soft transition-shadow hover:shadow-liftSoft text-left"
           >
             <CornerMarkers color="ink" size="sm" inset={14} />
             <div className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/30">
@@ -132,7 +130,7 @@ export function Hero() {
                 </span>
               </div>
             </div>
-          </motion.a>
+          </motion.button>
 
           {/* Metric card */}
           <motion.div
@@ -160,21 +158,11 @@ export function Hero() {
             {/* gauge */}
             <Gauge value={HERO.metricCard.metric} unit={HERO.metricCard.metricUnit} />
 
-            {/* right copy + cta */}
+            {/* right copy */}
             <div className="flex flex-col gap-3 md:max-w-[230px]">
               <p className="text-sm md:text-[14.5px] leading-relaxed text-warmDark/85">
                 {HERO.metricCard.body}
               </p>
-              <button
-                type="button"
-                onClick={() => openPopup()}
-                className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink"
-              >
-                {HERO.metricCard.ctaLabel}
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-ink text-orange transition-transform group-hover:translate-x-0.5">
-                  <ArrowIcon />
-                </span>
-              </button>
             </div>
           </motion.div>
         </div>

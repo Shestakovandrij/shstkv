@@ -36,19 +36,23 @@ export function Footer() {
           {/* Nav — center column, underlined like ClearPath */}
           <nav aria-label="Футер" className="flex flex-col gap-3 md:items-center">
             {NAV_ITEMS.map((item) => (
-              <button
+              <a
                 key={item.id}
-                type="button"
+                href={`#${item.id}`}
                 onMouseEnter={() => setActiveNav(item.id)}
                 onMouseLeave={() => setActiveNav(null)}
-                onClick={() => scrollToId(item.id)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToId(item.id);
+                  history.replaceState(null, '', `#${item.id}`);
+                }}
                 className={[
                   'text-base md:text-lg underline-offset-[6px] decoration-1 transition-colors text-left md:text-center',
                   activeNav === item.id ? 'text-orange underline decoration-orange' : 'text-white/75 underline decoration-white/25 hover:text-white',
                 ].join(' ')}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
           </nav>
 
@@ -79,18 +83,19 @@ export function Footer() {
           </div>
         </div>
 
-        {/* MASSIVE WORDMARK — bleeds off bottom */}
+        {/* MASSIVE WORDMARK — bleeds off bottom, capped on ultra-wide */}
         <div className="relative mt-10 md:mt-14 overflow-hidden">
-          {/* subtle gradient mask at bottom to fade into edge */}
-          <Image
-            src="/logo-light.svg"
-            alt=""
-            width={1700}
-            height={360}
-            aria-hidden
-            className="w-[130%] -mx-[15%] md:w-[115%] md:-mx-[7.5%] select-none opacity-90 pointer-events-none"
-            priority={false}
-          />
+          <div className="mx-auto max-w-[1800px]">
+            <Image
+              src="/logo-light.svg"
+              alt=""
+              width={1700}
+              height={360}
+              aria-hidden
+              className="w-[130%] -mx-[15%] md:w-[115%] md:-mx-[7.5%] select-none opacity-90 pointer-events-none"
+              priority={false}
+            />
+          </div>
         </div>
       </div>
     </footer>
