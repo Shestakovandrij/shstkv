@@ -87,11 +87,21 @@ export function Footer() {
           <div className="mx-auto max-w-[1800px]">
             <h2
               aria-hidden
-              className="select-none pointer-events-none bg-clip-text text-transparent text-center font-bold tracking-[-0.06em] leading-none"
+              className="select-none pointer-events-none bg-clip-text text-transparent text-center font-black tracking-[-0.07em] leading-none"
               style={{
-                fontSize: 'clamp(6rem, 28vw, 24rem)',
+                fontSize: 'clamp(4rem, 19vw, 16rem)',
                 backgroundImage:
-                  'linear-gradient(180deg, #FFFFFF 0%, #D1D3D5 35%, #FB6221 70%, #C04611 100%)',
+                  'linear-gradient(180deg, #FFFFFF 0%, #D1D3D5 30%, #FB6221 70%, #C04611 100%)',
+                textShadow: [
+                  '1px 1px 0 #D94A14',
+                  '2px 2px 0 #C04611',
+                  '3px 3px 0 #A53D0E',
+                  '4px 4px 0 #7A2C0A',
+                  '5px 5px 0 #4C433F',
+                  '6px 6px 0 #3B342F',
+                  '7px 7px 0 #2A2521',
+                  '8px 14px 24px rgba(0,0,0,0.55)',
+                ].join(', '),
               }}
             >
               shstkv
