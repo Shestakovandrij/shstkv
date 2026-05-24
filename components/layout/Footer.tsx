@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 import { NAV_ITEMS, TELEGRAM_URL } from '@/lib/constants';
 import { FOOTER } from '@/content/copy';
@@ -83,18 +82,20 @@ export function Footer() {
           </div>
         </div>
 
-        {/* MASSIVE WORDMARK — bleeds off bottom, capped on ultra-wide */}
+        {/* MASSIVE WORDMARK — gradient text, capped on ultra-wide */}
         <div className="relative mt-10 md:mt-14 overflow-hidden">
           <div className="mx-auto max-w-[1800px]">
-            <Image
-              src="/logo-light.svg"
-              alt=""
-              width={1700}
-              height={360}
+            <h2
               aria-hidden
-              className="w-[130%] -mx-[15%] md:w-[115%] md:-mx-[7.5%] select-none opacity-90 pointer-events-none"
-              priority={false}
-            />
+              className="select-none pointer-events-none bg-clip-text text-transparent text-center font-bold tracking-[-0.06em] leading-none"
+              style={{
+                fontSize: 'clamp(6rem, 28vw, 24rem)',
+                backgroundImage:
+                  'linear-gradient(180deg, #FFFFFF 0%, #D1D3D5 35%, #FB6221 70%, #C04611 100%)',
+              }}
+            >
+              shstkv
+            </h2>
           </div>
         </div>
       </div>
