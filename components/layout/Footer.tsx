@@ -91,7 +91,7 @@ export function Footer() {
               style={{
                 fontSize: 'clamp(4rem, 19vw, 16rem)',
                 backgroundImage:
-                  'linear-gradient(180deg, #FFFFFF 0%, #D1D3D5 30%, #FB6221 70%, #C04611 100%)',
+                  'linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.55) 45%, rgba(255,255,255,0) 100%)',
                 textShadow: [
                   '1px 1px 0 #D94A14',
                   '2px 2px 0 #C04611',
