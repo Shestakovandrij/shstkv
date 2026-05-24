@@ -1,7 +1,7 @@
 export const NAV_ITEMS = [
   { id: 'audience', label: 'Для кого' },
+  { id: 'included', label: 'Що входить' },
   { id: 'pricing', label: 'Пакети' },
-  { id: 'telegram', label: 'Telegram-заявки' },
   { id: 'process', label: 'Процес' },
   { id: 'faq', label: 'FAQ' },
 ] as const;

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { HighlightFrame } from '@/components/ui/HighlightFrame';
 import { HERO } from '@/content/copy';
 import { useLeadPopup } from '@/components/global/LeadPopupProvider';
 import { scrollToId, cn } from '@/lib/utils';
@@ -47,22 +48,11 @@ export function Hero() {
             >
               {HERO.headlineParts.map((part, i) => {
                 if (!part.accent) return <span key={i}>{part.text}</span>;
-                if (part.accent === 'orange') {
-                  return (
-                    <span
-                      key={i}
-                      className="mx-1 inline-flex items-center rounded-2xl bg-orange px-3 leading-[1.05] md:px-4"
-                    >
-                      {part.text}
-                    </span>
-                  );
-                }
                 return (
-                  <span
-                    key={i}
-                    className="mx-1 inline-flex items-center rounded-2xl bg-ink px-3 leading-[1.05] text-orange md:px-4"
-                  >
-                    {part.text}
+                  <span key={i} className="mx-1 md:mx-2 inline-block">
+                    <HighlightFrame color="orange" size="lg">
+                      {part.text}
+                    </HighlightFrame>
                   </span>
                 );
               })}

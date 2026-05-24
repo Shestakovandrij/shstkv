@@ -2,7 +2,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { AudienceSection } from '@/components/sections/AudienceSection';
-import { ValueSection } from '@/components/sections/ValueSection';
+import { IncludedSection } from '@/components/sections/IncludedSection';
 import { TelegramLeadsSection } from '@/components/sections/TelegramLeadsSection';
 import { PricingSection } from '@/components/sections/PricingSection';
 import { ProcessSection } from '@/components/sections/ProcessSection';
@@ -18,7 +18,7 @@ export default function HomePage() {
       <main id="top">
         <Hero />
         <AudienceSection />
-        <ValueSection />
+        <IncludedSection />
         <TelegramLeadsSection />
         <PricingSection />
         <ProcessSection />
