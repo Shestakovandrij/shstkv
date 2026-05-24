@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { SectionWrapper } from '@/components/layout/SectionWrapper';
 import { BracketCard } from '@/components/ui/BracketCard';
 import { HighlightFrame } from '@/components/ui/HighlightFrame';
+import { BlurOrb } from '@/components/ui/BrandDecor';
 import { Button } from '@/components/ui/Button';
 import { AUDIENCE } from '@/content/copy';
 import { useLeadPopup } from '@/components/global/LeadPopupProvider';
@@ -15,7 +16,9 @@ export function AudienceSection() {
 
   return (
     <SectionWrapper id="audience" ariaLabelledBy="audience-title" bg="surface" className="overflow-hidden">
-      <div className="grid gap-12 lg:grid-cols-[1.05fr_1.2fr] lg:gap-16">
+      <BlurOrb color="orange" size={420} intensity="low" className="-top-32 -right-20" />
+      <BlurOrb color="ink" size={300} intensity="low" className="-bottom-20 -left-16" />
+      <div className="relative grid gap-12 lg:grid-cols-[1.05fr_1.2fr] lg:gap-16">
         {/* Left: headline + supporting text + CTA */}
         <div className="flex flex-col gap-7">
           <span className="text-xs uppercase tracking-[0.16em] font-medium text-neutralGray">

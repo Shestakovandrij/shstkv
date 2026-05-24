@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { Button } from './Button';
 import { Badge } from './Badge';
+import { CornerMarkers, BlurOrb } from './BrandDecor';
 import { useLeadPopup } from '@/components/global/LeadPopupProvider';
 import type { PackageValue } from '@/lib/validators';
 
@@ -58,21 +59,24 @@ export function PricingCard({
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 200, damping: 22 }}
       className={cn(
-        'relative flex flex-col gap-7 rounded-card p-7 md:p-10 shadow-soft border',
+        'relative flex flex-col gap-7 rounded-card p-7 md:p-10 shadow-soft border overflow-hidden',
         isDark
           ? 'bg-ink text-white border-white/5 lg:scale-[1.02]'
           : 'bg-white text-ink border-ink/5',
       )}
     >
+      <CornerMarkers color={isDark ? 'orange' : 'orange'} size="sm" inset={14} />
+      {isDark ? <BlurOrb color="orange" size={260} intensity="low" className="-top-20 -right-20" /> : null}
+
       {recommended ? (
-        <div className="absolute -top-3 left-7 md:left-10">
+        <div className="absolute -top-3 left-7 md:left-10 z-10">
           <Badge tone="orange" uppercase>
             {recommendedLabel ?? 'Рекомендовано'}
           </Badge>
         </div>
       ) : null}
 
-      <header className="flex flex-col gap-4">
+      <header className="relative flex flex-col gap-4">
         <div className={cn('text-xs uppercase tracking-[0.16em] font-medium', isDark ? 'text-white/60' : 'text-neutralGray')}>
           {tagline}
         </div>
@@ -86,7 +90,7 @@ export function PricingCard({
         </p>
       </header>
 
-      <ul className="flex flex-col gap-3.5">
+      <ul className="relative flex flex-col gap-3.5">
         {features.map((f, i) => {
           const accent = highlightFromIndex !== undefined && i >= highlightFromIndex;
           return (
@@ -98,7 +102,7 @@ export function PricingCard({
         })}
       </ul>
 
-      <div className="mt-auto pt-2">
+      <div className="relative mt-auto pt-2">
         <Button
           variant={isDark ? 'primary' : 'dark'}
           size="lg"

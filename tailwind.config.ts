@@ -52,7 +52,7 @@ const config: Config = {
         ],
       },
       fontSize: {
-        'display-hero': ['clamp(2.75rem, 7vw, 6.5rem)', { lineHeight: '0.95', letterSpacing: '-0.035em' }],
+        'display-hero': ['clamp(2.25rem, 5.2vw, 4.75rem)', { lineHeight: '1.0', letterSpacing: '-0.03em' }],
         'display-section': ['clamp(2.25rem, 4.5vw, 4.5rem)', { lineHeight: '1.0', letterSpacing: '-0.025em' }],
         'display-md': ['clamp(1.75rem, 3vw, 2.75rem)', { lineHeight: '1.05', letterSpacing: '-0.02em' }],
         'lead': ['clamp(1.125rem, 1.4vw, 1.375rem)', { lineHeight: '1.45' }],
